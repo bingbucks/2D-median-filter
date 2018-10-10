@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<TITLE>Sliding Windows</TITLE>
+</HEAD>
+<BODY BGCOLOR="000000" text="#FFFFFF" link="FFF00D" alink="#FF79FF" vlink="#30F0F2">
+<center>
+<H1>What is a Sliding Window Filter?</H1>
+</center>
+<p>
+<center><IMG SRC="bar.gif"></A></center>
+<p>
+<DD>A window can be thought of as a box with "entities" in it. 
+You do something with these entities and then you remove one entity from, say, the left and you add in a <I>new</I> entity from, say, the right. 
+You repeat the process on these entities, sliding one out, and a new one in. 
+Then repeat the process over again. 
+<p>
+<DD>Take for example the image below from my <A HREF="http://www.microsoft.com">Microsoft</A> PowerPoint presentation.
+<p>
+<center>
+<IMG SRC="Picture1.GIF"></A>
+</center>
+<p>
+<DD>Lets assume that these are some sample digitized data. 
+You are sending this data to your boss, whose office is a few floors down from you. 
+Your offices are running on a 10base2 UTP Ethernet. 
+The janitor, who is in the wiring closet where your Ethernet HUB is located, decides to arch-weld his favorite mophead to an iron Johnson Bar, because he's sick and tired of the wooden handles breaking. 
+You, however, don't know this. 
+But you wonder why the office lights repeatedly flicker.
+Your boss's computer then receives this data...
+<p>
+<center>
+<IMG SRC="Picture2.GIF"></A>
+</center>
+<p>
+<DD>This is meaningless to the computer, and your boss is not going to be happy.
+<DD>Putting aside the humorous circumstance, how could you remove the two impulses at 4 and 12, and preserve the step/edge at 7? 
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>Let's center our window (or "box") on point 2. And lets use a window of size N=3. 
+</H2>
+<UL>
+	<LI><H1>Window 1</H1>
+	<UL>
+		<LI>0, 0, .5
+		<LI>Sort these values: 0, 0, .5
+		<LI>Median = 0
+	</UL>
+	<LI>Now, write that median value to a new, separate output file at the second position. 
+	<LI>Increment the window to the right, so that it is now centered on point 3. 
+	<P>
+	<center><IMG SRC="bar.gif"></A></center>
+	<LI><H1>Window 2</H1>
+	<UL>
+		<LI>0, .5, 1
+		<LI>Sorted: 0, .5, 1
+		<LI>Median = .5
+	</UL>
+	<LI>Write this new median value to the output file at the third position. 
+	<LI>Increment window to the right. Now it's centered on point 4. 
+	<P>
+	<center><IMG SRC="bar.gif"></A></center>
+	<LI><H1>Window 3</H1>
+	<UL>
+		<LI>.5, 1, .5
+		<LI>Sorted: .5, .5, 1
+		<LI>Median = .5
+	</UL>
+	<LI>Write this new median value to the output file at the fourth position. 
+	<LI>Increment window. Now it's centered on point 5.
+	<P>
+	<center><IMG SRC="bar.gif"></A></center>
+	<LI><H1>Window 4</H1>
+	<UL>
+		<LI>1, .5, .5
+		<LI>Sorted: .5, .5, 1
+		<LI>Median = .5
+	</UL>
+	<LI>Write this new median value to the output file at the fifth position.
+	<LI>Increment window. Now it's centered on point 6.
+	<P>
+	<center><IMG SRC="bar.gif"></A></center>
+	<LI><H1>Window 5</H1>
+	<UL>
+		<LI>.5, .5, 1
+		<LI>Sorted: .5, .5, 1
+		<LI>Median = .5
+	</UL>
+	<LI>Write this new median value to the output file at the sixth position.
+	<LI>Increment window. Now it's centered on point 7.
+	<P>
+	<center><IMG SRC="bar.gif"></A></center>
+	<LI><H1>Window 6</H1>
+	<UL>
+		<LI>.5, 1, 1
+		<LI>Sorted: .5, 1, 1
+		<LI>Median = 1
+	</UL>
+	<LI>Write this new median value to the output file at the seventh position. 
+	<LI>Increment window. Now, it's centered on point 8.
+	<P>
+	<center><IMG SRC="bar.gif"></A></center>
+	<LI><H1>Window 7</H1>
+	<UL>
+		<LI>1, 1, 1
+		<LI>Sorted: 1, 1, 1
+		<LI>Median = 1
+	</UL>
+	<LI>Write this new median value to the output file at the eighth position.
+	<LI>Increment the window, and so on...
+</UL>
+<P>
+<DD>Sorry about the length of the previous excercise, but I felt it was necessary in order the understand the idea of a sliding window. 
+Well, if you were observant (though, I know it's tough because the graph is about 4 screens up), you'd see that the impulses were removed completely, and the step was preserved perfectly.
+<P>
+
+<center>
+<TABLE border=0 cellpadding=5 width=200>
+<TR>
+<TD>
+<A HREF="impulse.html">
+<IMG SRC="left.jpg"></A>
+</TD>
+<TD>
+<A HREF="http://www.eg.bucknell.edu/~tassone/index.html">
+<IMG SRC="up.jpg"></A>
+</TD>
+<TD>
+<A HREF="sliding2.html">
+<IMG SRC="right.jpg"></A>
+</TD>
+</TR>
+</TABLE>
+</center>
+<center><IMG SRC="bar.gif"></A></center>
+<ADDRESS>tassone@bucknell.edu</ADDRESS>
+</BODY>
+</HTML>

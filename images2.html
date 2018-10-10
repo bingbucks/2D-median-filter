@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<TITLE>Some More Images</TITLE>
+</HEAD>
+<BODY BGCOLOR="000000" text="#FFFFFF" link="FFF00D" alink="#FF79FF" vlink="#30F0F2">
+<center>
+<H1>Median Filtered Images with Large Windows</H1>
+<P>
+<IMG SRC="bar.gif"></A>
+<blink><H4>WARNING: Widen your Web Browser window if the text looks irregular</H4></blink>
+</center>
+<P>
+<H2>What if we make the median filter windows REALLY big?</H2>
+<P>
+<DD>With a large window, it is possible to remove "bigger impulses", like the bears eyes and nose. With a large window in your median filter, it is also possible to isolate whole objects within an image. For example, I can make the window really big and isolate the bear's body. I can then use that median filtered image and subtract it from the original (or vise versa), and isolate the bear's eyes or nose.
+<DD>This baseline isolation is useful with Electrocardiograms. Professor Dietz's wife, Catherine Dietz, developed a 1 Dimensional median filter program for this. By using a big window, and subtracting out the original electrocardiogram, she was able to isolate just the patient's heartbeat on the scope, with no deviations from equilibrium due to the patients breathing. This resulted in a perfectly flat electrocardiogram with just the little heartbeat blips.
+
+<P><BR clear="all">
+<center>
+<IMG SRC="bar.gif"></A>
+</center>
+<P>
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=25 HSPACE=10 WIDTH=120 ALIGN="left">
+<TR>
+	<TD>
+		<center>
+		<A HREF="225med.gif">
+		<IMG SRC="225medsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		15 x 15
+		<BR>
+		Median Filter
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=25 HSPACE=10 WIDTH=120 ALIGN="right">
+<TR>
+	<TD>
+		<center>
+		<A HREF="625med.gif">
+		<IMG SRC="625medsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		25 x 25 
+		<BR>
+		Median Filter
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+<P>
+<DD>The image to the left is the bear filtered with a 15 x 15 (N=225) median filter.
+<DD>The image to the right is the bear filtered with a 25 x 25 (N=625) median filter. 
+
+<P><BR clear="all">
+<center>
+<IMG SRC="bar.gif"></A>
+</center>
+<P>
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=25 HSPACE=10 WIDTH=120 ALIGN="right">
+<TR>
+	<TD>
+		<center>
+		<A HREF="1225med.gif">
+		<IMG SRC="1225medsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		35 x 35
+		<BR>
+		Median Filter
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+<P>
+<DD>The image to the right is the bear filtered with a 35 x 35 (N=1225) median filter. 
+<DD>Now, it is definitely easy to see that the bear has basically turned into a big white blob. The bigger and bigger that you make the window, the more and more the bear will look like a piece of slab. You can then do some baseline isolation. You can also see the pronounced banding that the ordinary 2-D median filter causes.
+<DD>If you were observant, you'd realize that the 35 x 35 median filtered image almost looks like a blurred, or Low Passed image (Low Passed of the original image). Well, if you think about it, probability theory says that if we assume an almost normal distribution of pixel values in our picture, and the bigger and bigger our sample set gets (Window, in our case), the more and more the mean approaches the median. 
+
+
+<P><BR clear="all">
+<P>
+<center>
+<TABLE border=0 cellpadding=5 width=200>
+<TR>
+<TD>
+<A HREF="images1.html">
+<IMG SRC="left.jpg"></A>
+</TD>
+<TD>
+<A HREF="http://www.eg.bucknell.edu/~tassone/index.html">
+<IMG SRC="up.jpg"></A>
+</TD>
+<TD>
+<A HREF="results.html">
+<IMG SRC="right.jpg"></A>
+</TD>
+</TR>
+</TABLE>
+</center>
+<center><IMG SRC="bar.gif"></A></center>
+<ADDRESS>tassone@bucknell.edu</ADDRESS>
+</BODY>
+</HTML>

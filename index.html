@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<TITLE>Median Filter Introduction</TITLE>
+</HEAD>
+<BODY BGCOLOR="000000" text="#FFFFFF" link="FFF00D" alink="#FF79FF" vlink="#30F0F2">
+<center>
+<H1>What can you use a 2 Dimensional median filter for?</H1>
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<IMG SRC="mornoisebear.gif"></A>
+<p>
+<H1>You can use a 2 dimensional median filter to remove <I>impulsive</I> noise from images, like this one shown here.</H1>
+</center>
+
+<p>
+<UL>
+	<LI>This image is barely recognizable with impulsive noise corruption. 
+Only a non-linear filter, such as a median filter, could remove this noise completely. 
+A linear filter would fail to remove the corrupt points without altering the image in an unacceptable manner. 
+	<LI>The problem with a median filter, as with any image processing algorithms, is that there is a danger of inefficiencies and lack of speed because of the number of operations that must be performed. 
+My algorithm uses a method suggested by Professor Dietz referred to as a Sliding Window Median Filter <I>with</I> linked lists. 
+I highlight linked lists because they are the key to the algorithm, and the reason why my algorithm can beat <A HREF="http://www.mathworks.com/">MathWorks Matlab</A> algorithm upto several times less. 
+And later on, I will explain what linked lists are and how they are more efficient.
+	<LI>The goal for this design was <I>SPEED</I>, and of course, accuracy, both of which I accomplished. 
+Though due to time constraints, I was not able to accomplish implementing the heart of Professor Dietz's thesis and that was a STM (Standard Type-M) Median Filter. 
+And I'll go into a little detail about this.
+	<LI>But first, I want to go into some basic background about medians and Digital Image Processing. 
+I will begin with a simple 1 Dimensional example, and then I'll migrate over into the 2 Dimensional world.
+</UL>
+
+<center>
+<TABLE border=0 cellpadding=5 width=200>
+<TR>
+<TD>
+<A HREF="http://www.eg.bucknell.edu/~tassone/index.html">
+<IMG SRC="up.jpg"></A>
+</TD>
+<TD>
+<A HREF="median.html">
+<IMG SRC="right.jpg"></A>
+</TD>
+</TR>
+</TABLE>
+</center>
+<center><IMG SRC="bar.gif"></A>
+<P>
+<a href="http://www2.pagecount.com/aa-cgi-bin/user.map2/14496">
+<img src="http://www2.pagecount.com/aa-cgi-bin/counter.gif?14496&g" ISMAP></a></center>
+<P>
+<address>tassone@bucknell.edu</address>
+</BODY>
+</HTML>
+

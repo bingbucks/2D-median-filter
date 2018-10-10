@@ -1,0 +1,302 @@
+<HTML>
+<HEAD>
+<TITLE>Some Images</TITLE>
+</HEAD>
+<BODY BGCOLOR="000000" text="#FFFFFF" link="FFF00D" alink="#FF79FF" vlink="#30F0F2">
+<center>
+<H1>The Median Filtered Images</H1>
+<P>
+<IMG SRC="bar.gif"></A>
+<P>
+<blink><H4>WARNING: Widen your Web Browser window if the text looks irregular</H4></blink>
+</center>
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=20 HSPACE=10 WIDTH=120 ALIGN="right">
+<TR>
+	<TD>
+		<center>
+		<A HREF="mornoisebear.gif">
+		<IMG SRC="mornoisebearsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		Very Dense
+		<BR>
+		Noise
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+<DD>Now, we get to look at some images. You remember this image, this was the image that was corrupted by very dense impulsive noise. The impulsive noise here corrupts the picture to the point where the image is unidentifiable. We can use several different filtering techniques in order to filter out the impulsive noise. But as you'll see, a non-linear filter is best for non-linear noise (At least at the undergrad level).
+
+<P><BR clear="all">
+<center><IMG SRC="bar.gif"</A></center>
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=85 HSPACE=10 WIDTH=120 ALIGN="left">
+<TR>
+	<TD>
+		<center>
+		<A HREF="25mrLP.gif">
+		<IMG SRC="25mrLPsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		5 x 5 Low Pass
+		<BR>
+		Filter
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=85 HSPACE=10 WIDTH=120 ALIGN="right">
+<TR>
+	<TD>
+		<center>
+		<A HREF="9mrmed1.gif">
+		<IMG SRC="9mrmed1small.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		3 x 3 
+		<BR>
+		Median
+		Filter
+		<BR>
+		(1st Pass)
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+<P>
+<DD>To the left is the very dense, noisy image filtered with a 5 x 5 Low Pass filter. To the right is the first pass of the same image filtered with a 3 x 3 Median Filter.
+<DD>As you can see, the Low Pass filter blurred the image, almost like smearing the impulses through the image. You can think about it as several Donald Trumps in the sample set. The average of the incomes of everybody in the sample set will be scewed by the Trumps. We saw this exact same occurence in the 1 Dimensional example at the beginning of the report.
+<DD>Looking at the 1st pass of the 3 x 3 median filter, you can see a significant improvement in the image quality. The image is now easily identified. There are still impulses within the image and this is due to the fact that the 3 x 3 window was occasionally filled with more than (N-1)/2 impulses, therefore resulting in a median that was an impulse. 
+
+<P><BR clear="all">
+<center><IMG SRC="bar.gif"</A></center>
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=35 HSPACE=10 WIDTH=120 ALIGN="left">
+<TR>
+	<TD>
+		<center>
+		<A HREF="25mrmed2.gif">
+		<IMG SRC="25mrmed2small.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		5 x 5
+		<BR>
+		Median
+		Filter
+		<BR>
+		(2nd Pass)
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=35 HSPACE=10 WIDTH=120 ALIGN="right">
+<TR>
+	<TD>
+		<center>
+		<A HREF="25mrmed3.gif">
+		<IMG SRC="25mrmed3small.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		5 x 5 
+		<BR>
+		Median
+		Filter
+		<BR>
+		(3rd Pass)
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+<P>
+<DD>The image to the left is the second pass of a 5 x 5 median filter on the noisy image, after the first pass 3 x 3. 
+<DD>The image to the right is the third pass of a 5 x 5 median filter on the noisy image. You can see that more and more of the impulses are being removed.
+
+
+<P><BR clear="all">
+<center><IMG SRC="bar.gif"</A></center>
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=205 HSPACE=10 WIDTH=120 ALIGN="left">
+<TR>
+	<TD>
+		<center>
+		<A HREF="25mrmed4.gif">
+		<IMG SRC="25mrmed4small.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		5 x 5
+		<BR>
+		Median
+		Filter
+		<BR>
+		(4th Pass)
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=205 HSPACE=10 WIDTH=120 ALIGN="right">
+<TR>
+	<TD>
+		<center>
+		<A HREF="graybear.gif">
+		<IMG SRC="graybearsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		Original
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+<P>
+<DD>The image to the left is a fourth pass of a 5 x 5 median filter. As you can see, all the impulses have been removed, but there also has been significant loss in image integrity. You can notice the banding of grays (check the bear's stomach). The colors start to look stepped, like a contour map of a hillside. 
+<DD>This is a drawback of an ordinary 2 dimensional median filter. They tend to shift areas of the images to discrete levels, instead of a nice continuous transition of gray colors. This is where Professor Dietz's Ph.D. thesis comes into play.
+<DD>Professor Dietz studied a special type of median filter referred to as a Standard Type-M (STM) Median Filter. Basically what this type of filter does is to reduce the banding effects. You can think of it as a filter which takes the median of a set of values if the variance of those values is high. If the variance of those values is low, then take the mean. An easier way to think of it would be if you had a little town, where people made around $30,000 a year, and a few Donald Trumps (Impulses) were to move in, the variance of the annual salaries would be high, therefore the median of the salaries would be a better representation of the town's salary. If there were no Donald Trumps (No impulses), then the variance is low, and the mean would be a better representation of the actual salaries.
+<DD>Theory does claim that if you keep running a median filter on the same image, the results will eventually become identical for every pass from there on.
+<DD>The image to the right is the original grayscale image.
+
+<P><BR clear="all">
+<center><IMG SRC="bar.gif"</A></center>
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=20 HSPACE=10 WIDTH=120 ALIGN="right">
+<TR>
+	<TD>
+		<center>
+		<A HREF="AWGNmed.gif">
+		<IMG SRC="AWGNmedsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		3 x 3 
+		<BR>
+		Median Filter
+		<BR>
+		AWGN
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+<P>
+<DD>To the right is a 3 x 3 median filtered version of the bear with AWGN (Additive White Guassian Noise) corruption. AWGN is a linear type of noise. Many signals classes use AWGN to model noise corruption because it is best filtered with linear filters. A median filter doesn't have any luck trying to filter AWGN because the noise pixel values could fall at any grayscale value within the image. The median filter could end up filtering out pixel values that it shouldn't. 
+<DD>As we saw at the beginning of this page, the low pass (linear) filter didn't have any luck with non-linear noise (impulsive). And as we see here, the median filter (non-linear) has no luck with linear noise (AWGN).
+
+
+<P><BR clear="all">
+<center><IMG SRC="bar.gif"</A></center>
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=65 HSPACE=10 WIDTH=120 ALIGN="left">
+<TR>
+	<TD>
+		<center>
+		<A HREF="noisebear.gif">
+		<IMG SRC="noisebearsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		Less Dense Noise
+		<BR>
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER=1 CELLPADDING=10 VSPACE=65 HSPACE=10 WIDTH=120 ALIGN="right">
+<TR>
+	<TD>
+		<center>
+		<A HREF="9med.gif">
+		<IMG SRC="9medsmall.gif"></A>
+		<center>
+	</TD>
+
+	<TD>
+		<center>
+		<H3>
+		3 x 3 Median Filter
+		</H3>
+		</center>
+	</TD>
+</TR>
+</TABLE>
+<P>
+<DD>The image to the left is an example of less dense impulsive noise corruption.
+<DD>The image to the right shows a 3 x 3 median filtered version of the image on the left. As you can see, the noise is removed perfectly, and the image integrity is almost exactly like the orignal. The impulses were easily removed on the first pass due to the fact that there weren't enough impulses per window to have an impulse result as a median.
+<DD>If you look close enough, and compare to the original, you can see that some of the rubble behind the bear's body has been slightly degraded. If you think about it, you'll realize that the rubble in the background almost "looks" like an impulse, and this is why it is possible for the rubble to be removed.
+
+
+
+<P><BR clear="all">
+<P>
+<center>
+<H4>
+All median filtered images were filtered by my C program. All noise was induced into the images by importing them into Matlab and using the "imnoise" funtion. The low pass filtered image was done by Matlab's "filter2" function.
+</H4>
+</center>
+
+
+
+<center>
+<TABLE border=0 cellpadding=5 width=200>
+<TR>
+<TD>
+<A HREF="program2.html">
+<IMG SRC="left.jpg"></A>
+</TD>
+<TD>
+<A HREF="http://www.eg.bucknell.edu/~tassone/index.html">
+<IMG SRC="up.jpg"></A>
+</TD>
+<TD>
+<A HREF="images2.html">
+<IMG SRC="right.jpg"></A>
+</TD>
+</TR>
+</TABLE>
+</center>
+<center><IMG SRC="bar.gif"></A></center>
+<ADDRESS>tassone@bucknell.edu</ADDRESS>
+</BODY>
+</HTML>

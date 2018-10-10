@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+<TITLE>Program Page 1</TITLE>
+</HEAD>
+<BODY BGCOLOR="000000" text="#FFFFFF" link="FFF00D" alink="#FF79FF" vlink="#30F0F2">
+<center>
+<H1>How did I implement my median filter?</H1>
+</center>
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>I implemented my algorithms in the C programming language. 
+Though I never had any formal training in C programming, it was an invaluable learning experience. 
+I took two semesters of PASCAL programming at Syracuse University, and that training definitely aided me in learning C. 
+With the help of a few reference books, Professor Dietz, and SparcWorks Debugger, I was able to complete my code. 
+<P>
+<DD>The first task that I set myself on was to become familiar with basic C programming syntax and the basic UNIX environment. 
+After I felt more comfortable with the basics, I began thinking about how to approach this project. 
+I figured that I would need a program that would read in the data, which in my case, is a bunch of numbers, sort these data with a quicksort or bubble sort algorithm, take the middle/median value, and then write this median value to an output file. Increment through the data, and then repeat the process. That's it, so I thought. 
+<DD>Professor Dietz said that any kind of sorting algorithm would be painfully slow and you'd be waiting for your results forever, and that Linked Lists were the way to go. 
+<DD>I started to investigate linked lists and how they worked. 
+At first, they were difficult to understand, and I spent numerous hours trying to figure them out on paper. 
+After several nights working on them, I finally figured them out. 
+And it blew my mind away how logical <I>THE IDEA</I> is, but how painful they are to physically map out on paper.
+<DD>Instead of going any further into how painful they were, I'll begin to explain what they are.
+<P>
+<DD>A Linked List consists of "entities" that have pointers to other entities, and they point to each other under some logical criteria. 
+For example, a relay runner knows who s/he must handoff to, and they know the runner that handed off to them. 
+Put simply, they know who runs after them and who ran before them. 
+Network gurus can't think of it as Token Ring Network token passing. 
+For example, the terminal with the token knows which terminal had the token before it, and which terminal gets the token after it.
+<DD>The criteria under which my Linked List follows is pixel/data value. A certain entity or, in my case, array element points to the element which has the next greatest value and the next smallest value. If one were to start on the bottom and follow the links through all the elements, one would traverse the whole list in numerical order.
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>Let's look at an example...
+<P>
+<center>
+<IMG SRC="Picture5.GIF"></A>
+</center>
+<P>
+<DD>As stated in the PowerPoint slide above, I predefine the values within the array (in this case N=5, the array/sample set size), and I also predefine all the links (Only "UP" links are shown to reduce the picture's complexity). 
+Each element is predefined with the value zero. And the array elements point up in logical order <I>WITH RESPECT TO THE ARRAY</I>. 
+I can't hightlight enough the fact that the actual array elements aren't always, and rarely are, in the same <I>LOGICAL</I> order as they are <I>NUMERICAL</I> order. 
+This will become more apparent in the next few PowerPoint slides. Also notice that the <I>MEDIAN</I> is predefined as the middle element, in this case element 2 (in red). 
+<DD>Let's say that we are ready to add the value "2" into our list. 
+My program compares this new value to the old median in the list. If the new number is greater than the old median, then it compares the new number to next highest number that the old median is pointing up to. If the new number is greater than that number, it keeps comparing to all the values until it finds a value that it's not bigger than, or until it comes to the top of the list. At that point, the new number points <I>DOWN</I> to the old number, that was at the top of the list, and that old number now points up to the new number, "2". 
+The analogous situation occurs if the new value is less than the old median. I compare to the old median value because it eliminates the comparisons with <I>EVERY</I> element. By comparing to the old median value, <I>AT MOST</I> you will have (N+1)/2 comparisons, therefore speeding up the comparison processes.
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>Lets see what happens when we add in "2"...
+<P>
+<center>
+<IMG SRC="Picture6.GIF"></A>
+</center>
+<P>
+<DD>First we remove the value in the zeroeth element, which is marked in green on the slide. 
+The links that were attached to the zeroeth element are broken, and this element will be by-passed in the chain of linked lists. 
+The number "2" is now assigned to array element zero. 
+And it is compared to the old median (From the last window, the number in red on the above slide). 
+As I explained before, this new number "2"  gets sorted into the list, and if you'll notice, "2" (The value in the zeroeth element) is now at the top of the list. 
+Also notice that the new median is now the value in array element 3, or the element that the <I>OLD MEDIAN WAS POINTING UP TO</I>, and you'll see this in the next slide highlighted in red. 
+<P>
+<center>
+<IMG SRC="Picture7.GIF"></A>
+</center>
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>Lets add in the number "6" (From the list at the top of the slide). 
+Now, it's time for the value in the first element to be removed. 
+Again, we break the links to and from the first element. Read in the new value, "6". 
+Compare "6" to the old median, which is now the value zero in the <I>THIRD</I> array element. 
+We find it's correct position in the list, and then...
+<P>
+<center>
+<IMG SRC="Picture8.GIF"></A>
+</center>
+<P>
+..."6" is now sorted into the list. Being that it is the highest number in the list, it is now at the top of the list. 
+Notice now that the <I>NEW MEDIAN</I> is now the value zero in the <I>FOURTH</I> array element, or the element that the old median (Array element 3) was pointing up to. 
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>Let's try another example. 
+The next value to remove is in array element 2. Again, we break the links to and from it, assign in the value "8", compare with the old median (Array element 4), sort it in, and...
+<P>
+<center>
+<IMG SRC="Picture9.GIF"></A>
+</center>
+<P>
+..."8" is sorted in, with the links pointing the correct way, and the <I>NEW MEDIAN</I> is now the value in the zeroeth element ("2"), or the element that the old median (Element 4) was pointing up to. 
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>Looks easy, huh? 
+<DD>Lets do another one. Now, it's time to remove the value in array element 3 (The removal of array elements is sequential, as shown here, to ensure that all elements in the window stay in the window N times, or in this case N=5 times). We break all links to and from element 3, read in the new value ("3", from the list), compare with the old median ("2", in array element zero), and sort "3" in.
+<DD>Now here's where it gets confusing....
+<P>
+<center>
+<IMG SRC="Picture10.GIF"></A>
+</center>
+<P>
+...The elements are sorted in correctly now, but the links are going all over the place. And trying to map these out by hand in order to consider every instance get's challenging.
+<DD>There are <I>NO</I> patterns at all with linked lists. I had to account for every instance imaginable. Instances that I had to concern myself with were:
+<UL>
+	<LI>Removing elements from the top or the bottom of the list. Elements at the bottom of the list pointed <I>DOWN</I> to themselves. Elements at the top of the list pointed <I>UP</I> to themselves. Makes sense, where else would they point? 
+	<LI>Removing elements from the body of the list. Here I had to have it's surrounding links bypass the current element that I was assigning a new value to. 
+	<LI>Removing the element that contained the old median. Here you throw away the element that is used to compare the new value with in order to know which direction you must go within the list.
+	<LI>Removing elements that are not at the position of the old median, but reading in new values that ARE EQUAL to the old median. Which always happens in Digital Image Processing. Because chances are that an area of a picture will be of roughly the same color.
+	<LI>Removing the element that contained the old median, and reading in a new value equal to the old median.
+	<LI>Removing elements immediately above or below the median. That way when the new median is needed, the program knows it. 
+</UL>
+<DD>If you were observant, you would've noticed that the new median only moves <I>ONE</I> position from the old median. The new median either moves up or down, or doesn't move at all. <I>AND THIS IS THE ADVANTAGE OF NOT USING BUBBLE SORT OR QUICKSORT</I>. There is no sorting, to a degree. You are only sorting in <I>ONE</I> value at a time. You are not taking a whole group of values and trying to sort them. This is why I begin the array with all predefined element values of "0", and all predefined links. The list is <I>ALWAYS</I> sorted, you only add in <I>ONE</I> value at a time, and this is a lot less computaitonal painful for the computer, and that is what makes Linked Lists fast. The list is always sorted, the median only moves one position at most, <I>AND</I> you don't have to keep reading in the data (No excessive file Input/Output) being that every time you move the window four old points stay in the window (With a window size N=5), while only <I>ONE</I> new point is added in. So why should you not keep those old values that you'll need anyway?
+<P>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>Linked Lists made the task of keep track of elements much easier. The biggest advantages were the reduction in file I/O, ease of attaining the new median, and eliminating the need to sort every window of values.
+<P>
+<center>OK, now I think that we have a handle on Linked Lists, lets move on.</center>
+<P>
+
+<center>
+<TABLE border=0 cellpadding=5 width=200>
+<TR>
+<TD>
+<A HREF="sliding2.html">
+<IMG SRC="left.jpg"></A>
+</TD>
+<TD>
+<A HREF="http://www.eg.bucknell.edu/~tassone/index.html">
+<IMG SRC="up.jpg"></A>
+</TD>
+<TD>
+<A HREF="program2.html">
+<IMG SRC="right.jpg"></A>
+</TD>
+</TR>
+</TABLE>
+</center>
+
+<center><IMG SRC="bar.gif"></A></center>
+<ADDRESS>tassone@bucknell.edu</ADDRESS>
+</BODY>
+</HTML>

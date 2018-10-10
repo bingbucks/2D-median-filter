@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>Impulsive Noise</TITLE>
+</HEAD>
+<BODY BGCOLOR="000000" text="#FFFFFF" link="FFF00D" alink="#FF79FF" vlink="#30F0F2">
+<center>
+<H1>
+What is Impulsive Noise? Where does it come from?
+</H1>
+</center>
+<center><IMG SRC="bar.gif"></A></center>
+<P>
+<DD>Impulsive noise can be thought of as noise that completely saturates a value. 
+Impulses in images can be thought of as "saturating" the color of a pixels, albeit black or white, which are the two extremes in grayscale representations. 
+<p>
+<DD>Impulsive noise can also be induced by lightning within cellular communications, and you can check out my friend <A HREF="http://www.eg.bucknell.edu/~tran">Tai Tran's</A> homepage and learn more about that. 
+Tai also worked under Professor Dietz and his senior design goes into digital and analog circuit techniques for fast switching median filters.
+<p>
+<DD>I think the most common example of impulsive noise that we've all encountered is on our television sets. 
+"Snow", as it is known to all, is an example of impulsive noise. 
+Did your mother ever start vacuuming the room while you were watching TV? 
+Ever notice the snow that suddenly appeared? 
+Well, this is an example of impulsive noise. 
+The brushes and commutators in the motor cause several sharp current edges every time it rotates. 
+These edges then cause the impulses you see on your television. 
+<p>
+<DD>The best way to think about my project is to take one frame of the information on the television. 
+My algorithm then clears that one frame up. 
+What about a continuous picture, like on a television? 
+Hey, what if you ran your algorithm on every frame of the television. 
+Well, that's possible, but not possible for 30 frames/sec. 
+An alternative that Professor Dietz suggested was to implement the filter "through time". 
+Take the median of one pixel through, say, 15 frames. 
+Now chances are an image will stay up on the screen for more than .5 seconds (That's excluding overlapping of camera views), and if 14 of the 15 different pixel values have roughly the same value (Being that they will be at the same spot in the television), and the 15th is an impulse (Black or white), then the median of these 15 values will be a value that is a true representation of the picture. 
+Now, this was just an idea for a "3 Dimensional" or "2 Dimensional through time" median filter, my design only considers one image.
+<p>
+<DD>Notice that the number "15" is odd. For the median to exist, the sample set must be of odd number. 
+This is obviously important, for then there would be no median out of a set of values. 
+<p>
+<center>
+<TABLE border=0 cellpadding=5 width=200>
+<TR>
+<TD>
+<A HREF="median.html">
+<IMG SRC="left.jpg"></A>
+</TD>
+<TD>
+<A HREF="http://www.eg.bucknell.edu/~tassone/index.html">
+<IMG SRC="up.jpg"></A>
+</TD>
+<TD>
+<A HREF="sliding1.html">
+<IMG SRC="right.jpg"></A>
+</TD>
+</TR>
+</TABLE>
+</center>
+<center><IMG SRC="bar.gif"></A></center>
+<ADDRESS>tassone@bucknell.edu</ADDRESS>
+</BODY>
+</HTML>
